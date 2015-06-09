@@ -1,3 +1,5 @@
+all: clean dnsmasq.conf test
+
 dnsmasq.conf:
 	sed '1d' hosts.csv | awk -F, '{print "dhcp-host=" $$3 "," $$2 "," $$1 }' > dnsmasq.conf
 	echo >> dnsmasq.conf
