@@ -1,10 +1,10 @@
 all: clean dnsmasq.conf test
 
 dnsmasq.conf:
-	@dnsmasq.sh
+	@./dnsmasq.sh
 
 clean:
-	@rm -vf dnsmasq.conf
+	@rm -vf ./dnsmasq.conf
 
 test: dnsmasq.conf
-	@dnsmasq --test --conf-file=dnsmasq.conf
+	@dnsmasq --test --conf-file=./dnsmasq.conf
