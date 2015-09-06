@@ -8,7 +8,7 @@ awk -F, 'NR>1{
   ip=$2
   hostname=$1
   printf "dhcp-host=%s,%s,%s\n", mac, ip, hostname
-  printf "host-record=%s,%s,%s\n", hostname, (hostname "," domain), ip}' hosts.csv > dnsmasq.conf
+  printf "host-record=%s,%s,%s\n", hostname, (hostname "." domain), ip}' hosts.csv > dnsmasq.conf
 echo 'Generated dnsmasq.conf from hosts.csv'
 
 exit 0
