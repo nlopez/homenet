@@ -2,6 +2,7 @@
 from __future__ import print_function
 from netaddr import IPAddress, EUI, AddrFormatError
 import yaml
+from textwrap import dedent
 
 
 with open("hosts.yml", 'r') as stream:
@@ -21,8 +22,24 @@ for host in hosts:
         print("Error parsing host '%(name)s': %(exc)s" % locals())
     hosts_valid.append(host)
 
-for host in hosts_valid:
-  print('set system static-host-mapping host-name %(name)s inet %(ip)s' % host)
-  print('set service dhcp-server shared-network-name LAN1 subnet 192.168.239.0/24 static-mapping %(name)s ip-address %(ip)s' % host)
-  print('set service dhcp-server shared-network-name LAN1 subnet 192.168.239.0/24 static-mapping %(name)s mac-address %(mac)s' % host)
+preamble = ('''
+  #!/bin/vbash
+  source /opt/vyatta/etc/functions/script-template
+  configure
+  delete system static-host-mapping
+  delete service dhcp-server shared-network-name LAN1 subnet 192.168.239.0/24 static-mapping
+  ''').strip()
+postamble = dedent('''
+  commit
+  save
+  exit
+  ''').strip()
 
+print(preamble)
+for host in hosts_valid:
+    print(
+        'set system static-host-mapping host-name %(name)s inet %(ip)s'
+        '\nset service dhcp-server shared-network-name LAN1 subnet 192.168.239.0/24 static-mapping %(name)s ip-address %(ip)s'
+        '\nset service dhcp-server shared-network-name LAN1 subnet 192.168.239.0/24 static-mapping %(name)s mac-address %(mac)s'
+        % host)
+print(postamble)
