@@ -1,0 +1,7 @@
+appdirs==1.4.0
+netaddr==0.7.19
+packaging==16.8
+pyaml==16.12.2
+pyparsing==2.1.10
+PyYAML==3.12
+six==1.10.0
