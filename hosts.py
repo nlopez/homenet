@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
-from netaddr import IPAddress, EUI, AddrFormatError
+from netaddr import IPAddress, EUI, AddrFormatError, mac_unix_expanded
 from textwrap import dedent
 import yaml
 
@@ -14,9 +14,10 @@ hosts_valid = []
 
 for host in hosts:
     name = host.get('name')
+    # normalize values
     try:
-        ip = IPAddress(host.get('ip'))
-        mac = EUI(host.get('mac'))
+        host['ip'] = IPAddress(host.get('ip'))
+        host['mac'] = EUI(host.get('mac'), dialect=mac_unix_expanded)
     except AddrFormatError as exc:
         print("Error parsing host '%(name)s': %(exc)s" % locals())
     hosts_valid.append(host)

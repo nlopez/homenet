@@ -1,0 +1,29 @@
+{
+    "default": {
+        "pyaml": {
+            "version": "==16.12.2",
+            "hash": "sha256:8b70b7cc2afa55dd89d2a31ef8abe4cfb3daa100cd63564f8fd97e6cac6cff5b"
+        },
+        "PyYAML": {
+            "version": "==3.12",
+            "hash": "sha256:592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+        },
+        "netaddr": {
+            "version": "==0.7.19",
+            "hash": "sha256:56b3558bd71f3f6999e4c52e349f38660e54a7a8a9943335f73dfc96883e08ca"
+        }
+    },
+    "develop": {},
+    "_meta": {
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ],
+        "requires": {},
+        "hash": {
+            "sha256": "d330a845077f7fb55f147b4c29e3db21cd12cc2103cc650c31dabd4205037f32"
+        }
+    }
+}
