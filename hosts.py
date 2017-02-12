@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-from __future__ import print_function
+#!/usr/bin/env python3
 from netaddr import IPAddress, EUI, AddrFormatError, mac_unix_expanded
 from textwrap import dedent
 import yaml
@@ -22,7 +21,7 @@ for host in hosts:
         print("Error parsing host '%(name)s': %(exc)s" % locals())
     hosts_valid.append(host)
 
-preamble = ('''
+preamble = dedent('''
   #!/bin/vbash
   source /opt/vyatta/etc/functions/script-template
   configure
