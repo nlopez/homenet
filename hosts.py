@@ -4,7 +4,7 @@ from netaddr import IPAddress, EUI, AddrFormatError, mac_unix_expanded
 from textwrap import dedent
 import yaml
 
-with open("hosts.yml", 'r') as stream:
+with open("hosts.yaml", 'r') as stream:
     try:
         hosts = yaml.load(stream)['hosts']
     except yaml.YAMLError as exc:

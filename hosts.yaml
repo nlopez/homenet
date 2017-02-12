@@ -64,3 +64,8 @@ hosts:
 - name: NickLopezMBP15
   ip: 192.168.239.10
   mac: f4-5c-89-bb-2f-cf
+
+- name: threeds
+  ip: 192.168.239.11
+  mac: 7c-bb-8a-be-61-f2
+
