@@ -69,3 +69,10 @@ hosts:
   ip: 192.168.239.11
   mac: 7c-bb-8a-be-61-f2
 
+- name: odroid0
+  ip: 192.168.239.12
+  mac: 00:1e:06:33:da:2c
+
+- name: peppy-wifi
+  ip: 192.168.239.13
+  mac: 00-71-cc-1b-6b-d9
