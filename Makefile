@@ -3,7 +3,7 @@ init:
 	pipenv install --three
 
 run:
-	pipenv run python ./hosts.py
+	@pipenv run python ./hosts.py
 
 clean:
 	pipenv --rm
